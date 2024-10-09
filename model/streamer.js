@@ -53,7 +53,7 @@ class Streamer {
         user_data.getToken(process.env.GET_TOKEN,(res) => {                                //calling each of the Twitch API functions in
             var AT = res.body.access_token;                                                //order, via callbacks, to get the current
             user_data.getStreamerID(process.env.GET_USER,AT,this.name,(res,name) =>{       //values for the object based on the 'name'
-                this.id = user_data.streamer_info.id                                       //field
+                this.id = user_data.streamer_info.id                                       //field (very ugly, I know)
                 curr_obj.id = this.id;
                 user_data.isPartnered(process.env.GET_USER,AT,name,(res,name) =>{
                     user_data.streamer_info.id = curr_obj.id;
